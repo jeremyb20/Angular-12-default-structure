@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import './scss/custom-variables.scss';
+@import './scss/themes/theme-default.scss';
+@import './scss/themes/theme-default-dark.scss';
+@import './scss/themes/theme-premium.scss';
+
+:root {
+    --primary-color: #fff;
+    --background-color: #e5e5e5;
+    --text-color: #2d2d2d;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    padding: 12px;
+    margin: 0;
+  }
+  
