@@ -2,4 +2,10 @@
     background-color: blanchedalmond;
     --text-color: #000;
     --primary-color: #a9cbf1;
+
+    .form-select {
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        border: none;
+    }
 }

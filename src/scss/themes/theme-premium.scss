@@ -2,4 +2,10 @@
     background-color: rgb(95, 158, 160);
     --text-color: #fff;
     --primary-color: rgb(106, 182, 184);
+
+    .form-select {
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        border: none;
+    }
 }

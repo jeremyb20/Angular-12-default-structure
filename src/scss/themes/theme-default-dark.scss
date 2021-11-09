@@ -2,4 +2,18 @@
     background-color: #1f2935;
     --text-color: #fff;
     --primary-color: #455363;
+
+    .form-select {
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        border: none;
+    }
+
+    option {
+        padding:  24px;
+    }
+    
+    select.form-control {
+        padding:  24px;
+    }
 }
