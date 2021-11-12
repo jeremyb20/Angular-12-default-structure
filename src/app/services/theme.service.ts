@@ -31,8 +31,13 @@ export class ThemeService {
       bodyElement.classList.add(nextClass);
 
       this.bodyClass = nextClass;
+      localStorage.setItem( 'theme' ,this.bodyClass);
     }
 
+  }
+
+  getThemeSelected() {
+    return localStorage.getItem('theme');
   }
 
   getPrevClassIdx(): number {

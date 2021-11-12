@@ -1,0 +1,50 @@
+<div class="sidebar" [ngClass]="{ 'expanded': isExpanded }">
+    <div class="header">
+      <h1 class="title">
+        <a class="nav_logo"> <span class="nav_logo-name">Home</span> </a>
+      </h1>
+      <div class="toggle" (click)="handleSidebarToggle()">
+        <span class="chevron"></span>
+      </div>
+    </div>
+    <div class="content">
+      <nav id="nav" class="nav">
+        <div>
+            <div class="nav_list"> 
+                <a [routerLink]="'/dashboard'" [routerLinkActive]="['active']"  class="nav_link"> <i class='fas fa-braille nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
+                <a [routerLink]="'/leads'" [routerLinkActive]="['active']" class="nav_link"> <i class='far fa-bookmark nav_icon'></i> <span class="nav_name">Leads</span> </a> 
+                <a [routerLink]="'/customers'" [routerLinkActive]="['active']" class="nav_link"> <i class='far fa-user nav_icon'></i> <span class="nav_name">Clientes</span> </a> 
+                <a [routerLink]="'/contacts'" [routerLinkActive]="['active']" class="nav_link"> <i class='far fa-address-book nav_icon'></i> <span class="nav_name">Contactos</span> </a>
+                <div class="accordion-item mb-2">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      <i class='fas fa-industry nav_icon acordion-icon'></i> <span class="nav_name">Estructura</span>
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body" [ngClass]="{ 'hide-padding': !isExpanded }">
+                      <a [routerLink]="'/structure'" [routerLinkActive]="['active']" class="nav_link"> <i class='far fa-address-book nav_icon'></i> <span class="nav_name">Marcas</span> </a>
+                      <a [routerLink]="'/structure'" [routerLinkActive]="['active']" class="nav_link"> <i class='far fa-address-book nav_icon'></i> <span class="nav_name">Agrupaciones</span> </a>
+                      <a [routerLink]="'/structure'" [routerLinkActive]="['active']" class="nav_link"> <i class='far fa-address-book nav_icon'></i> <span class="nav_name">Organizacional</span> </a>
+                      <a [routerLink]="'/structure'" [routerLinkActive]="['active']" class="nav_link mb-1"> <i class='far fa-address-book nav_icon'></i> <span class="nav_name">Articulos</span> </a>
+                    </div>
+                  </div>
+                </div>
+                <a [routerLink]="'/sellers'" [routerLinkActive]="['active']" class="nav_link"> <i class='fas fa-users nav_icon'></i> <span class="nav_name">Vendedores</span> </a>
+                <a [routerLink]="'/proyects'" [routerLinkActive]="['active']" class="nav_link"> <i class='fas fa-stream nav_icon'></i> <span class="nav_name">Proyectos</span> </a>  
+                <a [routerLink]="'/opportunities'" [routerLinkActive]="['active']" class="nav_link"> <i class='fas fa-id-card-alt nav_icon'></i> <span class="nav_name">Oportunidad</span> </a>
+                <a [routerLink]="'/managements'" [routerLinkActive]="['active']" class="nav_link"> <i class='fas fa-sign nav_icon'></i> <span class="nav_name">Gestiones</span> </a>
+                <a [routerLink]="'/activities'" [routerLinkActive]="['active']" class="nav_link"> <i class='fas fa-file-contract nav_icon'></i> <span class="nav_name">Actividades</span> </a>
+                <a [routerLink]="'/quotes'" [routerLinkActive]="['active']" class="nav_link"> <i class='fas fa-hand-holding-usd nav_icon'></i> <span class="nav_name">Cotización</span> </a>
+            </div>
+        </div> 
+        <a class="nav_link" (click)="logout()"> <i class='fas fa-sign-out-alt nav_icon'></i> <span class="nav_name">Cerrar Sesion</span> </a>
+    </nav>
+      
+    </div>
+    <div class="footer"></div>
+
+
+
+    
+  </div>

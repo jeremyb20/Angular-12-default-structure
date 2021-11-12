@@ -31,7 +31,10 @@
               "src/assets"
             ],
             "styles": [
-              { "input": "node_modules/bootstrap/scss/bootstrap.scss", "bundleName": "boostrap" },
+              {
+                "input": "node_modules/bootstrap/scss/bootstrap.scss",
+                "bundleName": "boostrap"
+              },
               "src/styles.scss"
             ],
             "scripts": [
@@ -102,6 +105,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []

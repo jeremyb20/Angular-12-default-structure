@@ -1,0 +1,49 @@
+<div class="homeBody homeInit container-fluid px-4 px-md-4 py-5 mx-auto">
+    <div class="row justify-content-center">
+        <div class="card p-0 border-0 mb-5">
+            <div class="card">
+                <img src="../../../assets/FontLogo.png" alt="Font_Corp_Logo">
+                <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group mb-4">
+                      <label class="fw-bold mb-0">Correo</label>
+                      <input type="text" name="username" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" class="form-control" placeholder="abc@xyz.com">
+                      <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">Usuario es requerido</div>
+                        <div *ngIf="f.username.errors.email">El correo debe ser valido</div>
+                      </div>
+                    </div>
+                    <div class="form-group mb-4">
+                      <label class="fw-bold mb-0">Contraseña</label>
+                      <div class="input-group">
+                        <input name="password" [type]="showPassword ? 'text' : 'password'" formControlName="password" class="form-control" id="password-field" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;">
+                        <div class="m-1">
+                          <i alt="show" class="far fa-eye eye-show" (click)="showPassword = !showPassword" *ngIf="showPassword"></i>
+                          <i alt="hide" class="far fa-eye-slash eye-hide" (click)="showPassword = !showPassword" *ngIf="!showPassword"></i>
+                        </div>
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                          <div *ngIf="f.password.errors.required">Contraseña es requerida</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group my-4">
+                      <div class="col-12 d-grid gap-2">
+                        <button type="submit" [disabled]="f.username.value == '' || f.password.value == ''" class="btn btn-block btn-yellow btn-sm">
+                          Iniciar Sesión
+                        </button>
+                      </div>    
+                      <!-- <div class="col-6"> 
+                          <button [routerLink]="['/home']" class="btn btn-block btn-info btn-sm"><i class="fas fa-home mt-1"></i> Ir a inicio</button>
+                         </div> -->
+                    </div>
+                    <a [routerLink]="['/forgot']" class="text-sm mx-auto text-dim">Olvidó contraseña?</a>
+                    <div *ngIf="hideMsg" class="row no-gutters alert alert-warning error-message text-center mt-2" role="alert">
+                      <strong class="text-center"><i class="fas fa-times-circle mt-1 mr-3"></i> {{ ShowMsg }}</strong>
+                    </div>
+                   
+                  </form>
+            </div>
+        </div>
+    </div>
+ </div>
+  
+ 
