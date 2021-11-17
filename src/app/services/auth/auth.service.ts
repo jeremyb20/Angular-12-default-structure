@@ -6,7 +6,8 @@ import { LoginResponse } from '../../components/login/login-response'
 @Injectable({
     providedIn: 'root'
 })
-export class AuthService {  
+export class AuthService { 
+  theme: any; 
 
   constructor(private route: Router) {}
   public getToken(): any {
@@ -14,7 +15,7 @@ export class AuthService {
   }  
 
   authenticateUser(user: any) {
-    localStorage.setItem(user.username,'user_role');
+    localStorage.setItem('user_role',user.username);
     if(user.username == 'admin'){
       this.route.navigate(['/admin'])
     }else{
@@ -36,7 +37,12 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.clear()
+    const bodyElement = document.body;
+    this.theme = localStorage.getItem('theme');
+    if (bodyElement) {
+      bodyElement.classList.remove(this.theme);
+    }
+    localStorage.clear();
     this.route.navigate(['/login']);
   }
 }

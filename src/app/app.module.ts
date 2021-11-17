@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { OnlineStatusModule } from 'ngx-online-status';
 
 import { TokenInterceptor } from './services/auth/token.interceptor'
 import { ThemeService } from './services/theme.service';
@@ -32,6 +33,9 @@ import { OpportunitiesComponent } from './components/opportunities/opportunities
 import { ManagementsComponent } from './components/managements/managements.component';
 import { ActivitiesComponent } from './components/activities/activities.component';
 import { QuotesComponent } from './components/quotes/quotes.component';
+import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
+import { NotificationComponent } from './components/notification/notification.component';
+import { NotificationService } from './services/notification.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +61,9 @@ import { QuotesComponent } from './components/quotes/quotes.component';
     OpportunitiesComponent,
     ManagementsComponent,
     ActivitiesComponent,
-    QuotesComponent
+    QuotesComponent,
+    AdminLayoutComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -66,10 +72,12 @@ import { QuotesComponent } from './components/quotes/quotes.component';
     ReactiveFormsModule,
     HttpClientModule,
     NgHttpLoaderModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    OnlineStatusModule
   ],
   providers: [
     ThemeService,
+    NotificationService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

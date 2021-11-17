@@ -7,6 +7,7 @@ import { AdministratorComponent } from './components/administrator/administrator
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { CustomersComponent } from './components/customers/customers.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
 import { HeaderLayoutComponent } from './components/layouts/header-layout/header-layout.component';
 import { MainLayoutComponent } from './components/layouts/main-layout/main-layout.component';
 import { LeadsComponent } from './components/leads/leads.component';
@@ -33,25 +34,35 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: MainLayoutComponent,
+    canActivate: [AdminGuard],
+    component: AdminLayoutComponent,
     children: [
-      { path: 'admin', component: AdministratorComponent, canActivate: [AdminGuard] },
-      { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-      { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-      { path: 'leads', component: LeadsComponent, canActivate: [AuthGuard] },
-      { path: 'customers', component: CustomersComponent, canActivate: [AuthGuard] },
-      { path: 'contacts', component: ContactsComponent, canActivate: [AuthGuard] },
-      { path: 'structure', component: StructureComponent, canActivate: [AuthGuard] },
-      { path: 'sellers', component: SellersComponent, canActivate: [AuthGuard] },
-      { path: 'proyects', component: ProyectsComponent, canActivate: [AuthGuard] },
-      { path: 'opportunities', component: OpportunitiesComponent, canActivate: [AuthGuard] },
-      { path: 'managements', component: ManagementsComponent, canActivate: [AuthGuard] },
-      { path: 'activities', component: ActivitiesComponent, canActivate: [AuthGuard] },
-      { path: 'quotes', component: QuotesComponent, canActivate: [AuthGuard] },
-      { path: '404', component: NotFoundComponent },
-      { path: '**', redirectTo: '/404' }
+      { path: '', redirectTo: 'admin', pathMatch: 'full' },
+      { path: 'admin', component: AdministratorComponent},
     ]
-  }
+  },
+  {
+    path: '',
+    component: MainLayoutComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'profile', component: ProfileComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'leads', component: LeadsComponent },
+      { path: 'customers', component: CustomersComponent },
+      { path: 'contacts', component: ContactsComponent },
+      { path: 'structure', component: StructureComponent },
+      { path: 'sellers', component: SellersComponent },
+      { path: 'proyects', component: ProyectsComponent },
+      { path: 'opportunities', component: OpportunitiesComponent },
+      { path: 'managements', component: ManagementsComponent },
+      { path: 'activities', component: ActivitiesComponent },
+      { path: 'quotes', component: QuotesComponent }
+    ]
+  },
+  { path: '404', component: NotFoundComponent },
+  { path: '**', redirectTo: '/404',  pathMatch: 'full'}
 ];
 
 @NgModule({

@@ -6,7 +6,7 @@
                 <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                     <div class="form-group mb-4">
                       <label class="fw-bold mb-0">Correo</label>
-                      <input type="text" name="username" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" class="form-control" placeholder="abc@xyz.com">
+                      <input type="text" name="username" autocomplete="off" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" class="form-control" placeholder="abc@xyz.com">
                       <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                         <div *ngIf="f.username.errors.required">Usuario es requerido</div>
                         <div *ngIf="f.username.errors.email">El correo debe ser valido</div>

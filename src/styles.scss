@@ -9,7 +9,6 @@
 @import './scss/themes/theme-default-dark.scss';
 @import './scss/themes/theme-premium.scss';
 
-
   
 body {
   background-color: var(--background-color);
@@ -90,8 +89,7 @@ body {
    --bgcolor-new-item: var(--color-secondary-50);
 }
 .homeInit{
- background: -webkit-linear-gradient(left, #00c6ff, #00c6ff);
- 
+  background: -webkit-linear-gradient(left, #00c6ff, #00c6ff);
 }
  
 .input-group-text {
@@ -124,11 +122,10 @@ body {
  
 .reset,
 .forgot {
- @include media-breakpoint-down(sm) {
-   background: -webkit-linear-gradient(top, #007dff, #ffffff);
- }
- background: -webkit-linear-gradient(left, #3931af, #00c6ff);
-   overflow-x: hidden;
+  @include media-breakpoint-down(sm) {
+    background: -webkit-linear-gradient(top, #007dff, #ffffff);
+  }
+  background: -webkit-linear-gradient(left, #3931af, #00c6ff);
    @include media-breakpoint-down(sm) {
      // height: 130vh !important;
    }
@@ -191,9 +188,9 @@ body {
  
 .homeBody {
    color: #000;
-   @include media-breakpoint-up(md) {
-     overflow-x: hidden;
-   }
+  //  @include media-breakpoint-up(md) {
+  //    overflow-x: hidden;
+  //  }
    height: 100vh;
    // background-color: #81D4FA;
    background-repeat: no-repeat;
@@ -335,3 +332,30 @@ body {
   
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+@media (min-width : 992px) {
+  .offcanvas {
+    visibility      : visible;
+    position        : relative;
+    background      : none;
+    border          : none;
+    justify-content : end;
+    color           : red;
+  }
+}
+@media (max-width : 992px) {
+  .offcanvas {
+    width : 250px !important;
+  }
+  .offcanvas-start-lg {
+    top          : 0;
+    left         : 0;
+    border-right : 1px solid rgba(0, 0, 0, .2);
+    transform    : translateX(-100%);
+  }
+}
+.navbar-nav li a {
+  color: white !important;
+}

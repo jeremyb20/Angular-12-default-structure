@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-administrator',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdministratorComponent implements OnInit {
 
-  constructor() { }
+  constructor( private _notificationService: NotificationService) { }
 
   ngOnInit(): void {
   }
 
+  showtoast() {
+    this._notificationService.success('Hola', 'sucess', 16000);
+  }
 }

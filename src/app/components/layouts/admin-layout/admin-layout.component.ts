@@ -9,11 +9,11 @@ import { MediaResponse, MediaService } from "src/app/services/media.service";
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
-  selector: 'app-main-layout',
-  templateUrl: './main-layout.component.html',
-  styleUrls: ['./main-layout.component.scss']
+  selector: 'app-admin-layout',
+  templateUrl: './admin-layout.component.html',
+  styleUrls: ['./admin-layout.component.scss']
 })
-export class MainLayoutComponent implements OnInit {
+export class AdminLayoutComponent implements OnInit {
   Media: MediaResponse;
   private mediaSubscription: Subscription
   title: String;
@@ -23,6 +23,8 @@ export class MainLayoutComponent implements OnInit {
   selectTheme =  new FormControl('theme-default-dark');
 
   constructor(private router: Router, private themeService: ThemeService, private _media: MediaService, private _authService: AuthService) {
+    this.user = this._authService.getUserRole();
+
     this.mediaSubscription = this._media.subscribeMedia().subscribe(media => {
       this.Media = media;
       this.sidebarExpanded = media.IsMobile ? false: true;
@@ -45,9 +47,14 @@ export class MainLayoutComponent implements OnInit {
     
   }
 
+  logout(){
+    this._authService.logout();
+  }
+
   ngOnDestroy () {
     if(this.mediaSubscription){
       this.mediaSubscription.unsubscribe();
     }
   }
+
 }
