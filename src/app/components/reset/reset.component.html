@@ -1,1 +1,72 @@
-<p>reset works!</p>
+<div class="homeBody container-fluid px-4 px-md-4 py-4 mx-auto">
+  <div class="row g-0 justify-content-center">
+    <div class="card mb-3">
+      <!-- <div class="top-header-card text-white text-center">Sistema de control de inventarios</div> -->
+      <div class="text-center px-4 pt-2 pb-0">
+        <img src="../../../assets/images/LogoFont.png" width="100% auto" alt="Font_Corp_Logo">
+      </div>
+      <div class="card-body pt-1">
+        <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="form-group mb-2">
+            <label class="mb-0 fw-bold">Contraseña enviada al correo</label>
+            <div class="input-group input-wrap-password">
+              <input name="passwordEmailSent" [type]="showPasswordEmailSent ? 'text' : 'password'" formControlName="passwordEmailSent" class="form-control" id="passwordEmailSent" [ngClass]="{ 'is-invalid': submitted && f.passwordEmailSent.errors }" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;">
+              <div class="icon-view-password">
+                <i alt="show" class="fas fa-lock-open lock-show" (click)="showPasswordEmailSent = !showPasswordEmailSent" *ngIf="showPasswordEmailSent"></i>
+                <i alt="hide" class="fas fa-lock lock-hide" (click)="showPasswordEmailSent = !showPasswordEmailSent" *ngIf="!showPasswordEmailSent"></i>
+              </div>
+              <div *ngIf="submitted && f.passwordEmailSent.errors" class="invalid-feedback">
+                <div *ngIf="f.passwordEmailSent.errors.required">Contraseña enviada al correo es requerida</div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-group mb-2">
+            <label class="mb-0 fw-bold">Nueva Contraseña</label>
+            <div class="input-group input-wrap-password">
+              <input name="newPassword" [type]="showNewPassword ? 'text' : 'password'" formControlName="newPassword" class="form-control" id="newPassword" [ngClass]="{ 'is-invalid': submitted && f.newPassword.errors }" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;">
+              <div class="icon-view-password">
+                <i alt="show" class="fas fa-lock-open lock-show" (click)="showNewPassword = !showNewPassword" *ngIf="showNewPassword"></i>
+                <i alt="hide" class="fas fa-lock lock-hide" (click)="showNewPassword = !showNewPassword" *ngIf="!showNewPassword"></i>
+              </div>
+              <div *ngIf="submitted && f.newPassword.errors" class="invalid-feedback">
+                <div *ngIf="f.newPassword.errors.required">Nueva contraseña es requerida</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group mb-2">
+            <label class="mb-0 fw-bold">Confirmar Contraseña</label>
+            <div class="input-group input-wrap-password">
+              <input name="confirmPassword" [type]="showConfirmPassword ? 'text' : 'password'" formControlName="confirmPassword" class="form-control" id="confirmPassword" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;">
+              <div class="icon-view-password">
+                <i alt="show" class="fas fa-lock-open lock-show" (click)="showConfirmPassword = !showConfirmPassword" *ngIf="showConfirmPassword"></i>
+                <i alt="hide" class="fas fa-lock lock-hide" (click)="showConfirmPassword = !showConfirmPassword" *ngIf="!showConfirmPassword"></i>
+              </div>
+              <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                <div *ngIf="f.confirmPassword.errors.required">Confirmación de contraseña es requerida</div>
+                <div *ngIf="f.confirmPassword.errors.mustMatch">Las contraseñas deben coincidir</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group my-4">
+            <div class="col-12 d-grid gap-2">
+              <button type="submit" [disabled]="f.passwordEmailSent.value == '' || f.newPassword.value == '' || f.confirmPassword.value == ''" class="btn btn-block btn-home btn-sm">
+                Actualizar Contraseña
+              </button>
+            </div>
+          </div>
+
+          <a [routerLink]="['/login']" class="text-sm mx-auto my-2 text-recover-password">Ir a Inicio de Sesion</a>
+
+          <div *ngIf="hideMsg" class="row no-gutters alert alert-warning error-message text-center mt-2" role="alert">
+            <strong class="text-center"><i class="fas fa-times-circle mt-1 mr-3"></i> {{ ShowMsg }}</strong>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

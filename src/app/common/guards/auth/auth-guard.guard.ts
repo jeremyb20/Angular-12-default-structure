@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
     
    // return ( this.authService.getUserRole() != 'admin' )? true:false;
 
-      if( this.authService.getUserRole() != 'admin' ){
+      if( this.authService.getUserRole() != 'usuario@font-software.com' ){
         return true;
       }else {
         //this.router.navigate(['/admin']);

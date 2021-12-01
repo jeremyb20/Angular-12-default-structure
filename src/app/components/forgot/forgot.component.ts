@@ -1,21 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, ValidatorFn, FormGroupName } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MustMatch } from "../../common/confirm-password.validator";
-import { AuthService } from 'src/app/services/auth/auth.service';
+import { AuthService } from 'src/app/services/auth/auth.service';;
 
 @Component({
-  selector: 'app-reset',
-  templateUrl: './reset.component.html',
-  styleUrls: ['./reset.component.scss']
+  selector: 'app-forgot',
+  templateUrl: './forgot.component.html',
+  styleUrls: ['./forgot.component.scss']
 })
-export class ResetComponent implements OnInit {
+export class ForgotComponent implements OnInit {
+
   
-  public showPasswordEmailSent: boolean;
-  public showNewPassword: boolean;
-  public showConfirmPassword: boolean;
+  public showPassword: boolean;
   loginForm: FormGroup;
-  addressForm: FormGroup;
   submitted = false;
   loading: boolean = false;
   hideMsg: boolean = false;
@@ -24,15 +21,9 @@ export class ResetComponent implements OnInit {
   constructor( private _authService: AuthService, private formBuilder: FormBuilder,private router: Router) { }
  
     ngOnInit() {
-      this.loginForm = this.formBuilder.group(
-        {
-          passwordEmailSent: ["",Validators.required],
-          newPassword: ["",Validators.required],
-          confirmPassword: ["",Validators.required]
-        }, {
-          validator: MustMatch('newPassword', 'confirmPassword')
-        }
-      );
+      this.loginForm =  this.formBuilder.group({
+        email: ['', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      });
     }
     get f() { return this.loginForm.controls; }
     
@@ -42,14 +33,11 @@ export class ResetComponent implements OnInit {
         return;
       }
       const user = {
-        passwordEmailSent: this.f.passwordEmailSent.value,
-        newPassword: this.f.newPassword.value,
-        confirmPassword: this.f.confirmPassword.value
+        email: this.f.email.value,
+        password: this.f.password.value
       }
 
-      console.log(user);
-
-     // this._authService.authenticateUser(user);
+      this._authService.authenticateUser(user);
     
       // this._authService.authenticateUser(user).subscribe(data => {
       //   if(data.success) {

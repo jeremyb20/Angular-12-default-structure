@@ -36,6 +36,9 @@ import { QuotesComponent } from './components/quotes/quotes.component';
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { NotificationService } from './services/notification.service';
+import { PermissionsComponent } from './components/permissions/permissions.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ForgotComponent } from './components/forgot/forgot.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +66,9 @@ import { NotificationService } from './services/notification.service';
     ActivitiesComponent,
     QuotesComponent,
     AdminLayoutComponent,
-    NotificationComponent
+    NotificationComponent,
+    PermissionsComponent,
+    ForgotComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +78,8 @@ import { NotificationService } from './services/notification.service';
     HttpClientModule,
     NgHttpLoaderModule.forRoot(),
     BrowserAnimationsModule,
-    OnlineStatusModule
+    OnlineStatusModule,
+    NgbModule
   ],
   providers: [
     ThemeService,

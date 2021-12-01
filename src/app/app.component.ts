@@ -29,7 +29,7 @@ export class AppComponent {
     this.onlineStatusService.status.subscribe((status: OnlineStatusType) => {
       // Retrieve Online status Type
       this.status = status;
-      if(this.status==0){
+      if(this.status == 0 ){
         this._notificationService.warning('Error de conexión', 'Lo sentimos, se ha perdido la conexión', 6000);
       }else{
         this._notificationService.success('Hola', 'Se ha establecido la conexión', 6000);

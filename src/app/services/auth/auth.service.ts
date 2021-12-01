@@ -15,8 +15,8 @@ export class AuthService {
   }  
 
   authenticateUser(user: any) {
-    localStorage.setItem('user_role',user.username);
-    if(user.username == 'admin'){
+    localStorage.setItem('user_role',user.email);
+    if(user.email === 'usuario@font-software.com'){
       this.route.navigate(['/admin'])
     }else{
       this.route.navigate(['/dashboard'])

@@ -7,6 +7,7 @@ import { AdministratorComponent } from './components/administrator/administrator
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { CustomersComponent } from './components/customers/customers.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ForgotComponent } from './components/forgot/forgot.component';
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
 import { HeaderLayoutComponent } from './components/layouts/header-layout/header-layout.component';
 import { MainLayoutComponent } from './components/layouts/main-layout/main-layout.component';
@@ -15,6 +16,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ManagementsComponent } from './components/managements/managements.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { OpportunitiesComponent } from './components/opportunities/opportunities.component';
+import { PermissionsComponent } from './components/permissions/permissions.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProyectsComponent } from './components/proyects/proyects.component';
 import { QuotesComponent } from './components/quotes/quotes.component';
@@ -29,7 +31,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
-      { path: 'reset', component: ResetComponent }
+      { path: 'reset', component: ResetComponent },
+      { path: 'forgot', component: ForgotComponent }
     ]
   },
   {
@@ -39,6 +42,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'admin', pathMatch: 'full' },
       { path: 'admin', component: AdministratorComponent},
+      { path: 'permissions', component: PermissionsComponent}
     ]
   },
   {
